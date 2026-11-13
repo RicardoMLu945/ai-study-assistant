@@ -1,0 +1,150 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 学习助手</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, "Microsoft YaHei", sans-serif;
+            background: #f0f4f8;
+            margin: 0;
+            padding: 40px 20px;
+            color: #1e293b;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 40px auto;
+            background: white;
+            padding: 35px;
+            border-radius: 18px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+        }
+
+        h1 {
+            text-align: center;
+            color: #2563eb;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #64748b;
+            margin-bottom: 35px;
+        }
+
+        h3 {
+            margin-bottom: 12px;
+        }
+
+        textarea {
+            width: 100%;
+            height: 140px;
+            padding: 15px;
+            border: 1px solid #cbd5e1;
+            border-radius: 10px;
+            font-size: 16px;
+            resize: vertical;
+            outline: none;
+        }
+
+        textarea:focus {
+            border-color: #2563eb;
+        }
+
+        button {
+            width: 100%;
+            margin-top: 18px;
+            padding: 14px;
+            background: #2563eb;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #1d4ed8;
+        }
+
+        #result {
+            display: none;
+            margin-top: 25px;
+            padding: 18px;
+            background: #eff6ff;
+            border-radius: 10px;
+            line-height: 1.8;
+            white-space: pre-wrap;
+            overflow-wrap: anywhere;
+        }
+
+        .footer {
+            text-align: center;
+            color: #94a3b8;
+            font-size: 13px;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>AI 学习助手</h1>
+
+        <p class="subtitle">
+            让学习变得更简单，你的问题我来帮忙！
+        </p>
+
+        <h3>今天想学习什么？</h3>
+
+        <textarea
+            id="question"
+            placeholder="请输入你的问题，例如：什么是人工智能？">
+        </textarea>
+
+        <button onclick="submitQuestion()">
+            开始提问
+        </button>
+
+        <div id="result"></div>
+
+        <p class="footer">
+            AI Study Assistant · 我的第一个 AI 项目
+        </p>
+
+    </div>
+
+    <script>
+        function submitQuestion() {
+
+            const question =
+                document.getElementById("question").value;
+
+            const result =
+                document.getElementById("result");
+
+            if (question.trim() === "") {
+                alert("请先输入问题！");
+                return;
+            }
+
+            result.style.display = "block";
+
+            result.textContent =
+                "已经收到你的问题：\n\n" + question +
+                "\n\n目前这是演示版本，下一步我们将接入真正的 AI。";
+        }
+    </script>
+
+</body>
+</html>
